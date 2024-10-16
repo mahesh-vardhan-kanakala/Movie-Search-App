@@ -1,0 +1,75 @@
+/* Write CSS Here */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background-color: #00a310;
+  width: 100%;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+main {
+  margin: 2rem;
+  text-align: center;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#MoviesGrid {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  width: calc(25% - 20px);
+  /* 25% width with margin */
+  margin: 10px;
+  /* Increased margin */
+  text-align: center;
+}
+
+.movie-card img {
+  max-width: 100%;
+  /* Ensure image is responsive */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+@media screen and (max-width: 1200px) {
+  .movie-card {
+      width: calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .movie-card {
+      width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movie-card {
+      width: calc(100% - 20px);
+  }
+}
