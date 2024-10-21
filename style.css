@@ -1,75 +1,347 @@
-/* Write CSS Here */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+:root{
+    --yellow : #F9F871;
+    --main : #170117;
+    --second : #b60af5;
 }
 
-header {
-  background-color: #00a310;
-  width: 100%;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
 }
 
-main {
-  margin: 2rem;
-  text-align: center;
+/* color: #F9F871; */
+body{
+    background: #170117;
+
 }
 
-input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 20px;
+main{
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    margin-bottom : 3rem;
 }
 
-#MoviesGrid {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+header a{
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    transition: .3s ease-in;
+    font-weight: bold;
 }
 
-.movie-card {
-  width: calc(25% - 20px);
-  /* 25% width with margin */
-  margin: 10px;
-  /* Increased margin */
-  text-align: center;
+header a:hover{
+    color: #F9F871;
 }
 
-.movie-card img {
-  max-width: 100%;
-  /* Ensure image is responsive */
-  height: auto;
-  /* Maintain aspect ratio */
+
+form{
+    display: flex;
+    justify-content : center;
 }
 
-@media screen and (max-width: 1200px) {
-  .movie-card {
-      width: calc(33.33% - 20px);
-  }
+form input{
+    background : white;
+    border : none;
+    outline: none;
+    color : black;
+    width : 300px;
+    height : 50px;
+    line-height : 50px;
+    padding : 0 1rem;
+    border-radius: 5rem;
+    font-size: 1.3rem;
+    transition: .3s ease-in;
 }
 
-@media screen and (max-width: 800px) {
-  .movie-card {
-      width: calc(50% - 20px);
-  }
+form input::placeholder{
+    color : var(--second);
 }
 
-@media screen and (max-width: 600px) {
-  .movie-card {
-      width: calc(100% - 20px);
-  }
+form input:focus{
+    background: var(--second);
+    color: white;
 }
+
+form button {
+    height: 50px;
+    width: 50px;
+    font-size: 15px;
+    color: var(--second);
+    background: white;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form button:hover{
+    background: var(--second);
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+
+    justify-content: center;
+}
+
+.container h1{
+    color: white;
+    font-size: 4rem;
+}
+
+.movie{
+    width: 300px;
+    position: relative;
+    border-radius: 1rem;
+}
+
+.body-container{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1rem;
+
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, .5);
+}
+
+.body-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+
+.overview-container h3{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 1rem;
+    color: var(--yellow);
+}
+.overview-container p{
+    font-size: 1.4rem;
+}
+
+.overview-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    color: white;
+    background: rgba(0, 0, 0, .8);
+    transform: translateY(100%);
+    transition: .5s ease-in;
+    overflow: auto;
+}
+
+.overview-container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.body-container:hover .overview-container{
+    transform: translateY(0);
+}
+
+.rate{
+    background: var(--second);
+    color: white;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(30px, 30px);
+    z-index: 2;
+
+    box-shadow: 5px 3px 5px 5px rgba(0, 0, 0, .7);
+}
+
+
+#btn-category{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    margin-inline: 1rem;
+    cursor: pointer;
+    padding: 0 .5rem;
+}
+
+#categories{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.tag{
+    height: 70px;
+    border: 4px solid #8406b2;
+    line-height: calc(70px - 4px);
+    padding: 0rem 2rem;
+    border-radius: 5rem;
+    color: white;
+    font-size: 1.4rem;
+    transition: .3s ease-in;
+    cursor: pointer;
+}
+
+.tag:hover{
+    background: #8406b2;
+}
+
+.tag.active{
+    background : var(--yellow);
+    color: black;
+    border: none;
+}
+
+input, progress{
+    accent-color : cyan;
+}
+
+.pagination{
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    gap: 3rem;
+    font-weight: bold;
+}
+
+.page{
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.page:hover{
+    color: var(--yellow);
+}
+
+.current{
+    border: 5px solid var(--yellow);
+    padding: 1rem 2rem;
+    border-radius: 50%;
+}
+
+#prev{
+    cursor: not-allowed;
+    transition: none;
+    color: rgb(171, 171, 171);
+}
+
+#show-categories{
+    background: var(--second);
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 25px;
+    border-radius: 5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: .3s;
+    display: none;
+}
+
+#show-categories:hover{
+    background: transparent;
+    border: 2px solid var(--second);
+}
+
+@media screen and (max-width : 1200px){
+
+    .tag{
+        font-size: 1.2rem;
+        height: 50px;
+        line-height: calc(50px - 4px);
+    }
+}
+
+@media screen and (max-width : 700px){
+
+    header{
+        flex-direction: column;
+        gap: 2rem;
+    }   
+
+    .tag{
+        font-size: 1rem;
+        height: 50px;
+        line-height: calc(50px - 4px);
+        padding : 0 1rem;
+    }
+
+    .movie{
+        width: 200px;
+    }
+
+    .overview-container h3{
+        font-size: 1.4rem;
+    }
+    .overview-container p{
+        font-size: 1.2rem;
+    }
+
+}
+
+
+@media screen and (max-width : 500px){
+    form input{
+        width: 200px;
+    }
+    .container{
+        gap : 30px;
+    }
+    .movie{
+        width: 150px;
+    }
+    .rate{
+
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        transform: translate(20px, 20px);
+    }
+    .overview-container{
+        padding: 0;
+    }
+    .overview-container h3{
+        font-size: 1.2rem;
+    }
+    .overview-container p{
+        font-size: 1rem;
+        padding-left: .5rem;
+    }
+
+}
+
+
+ 
