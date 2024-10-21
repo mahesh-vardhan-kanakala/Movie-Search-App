@@ -189,6 +189,7 @@ async function getMovies(fetchedUrl) {
 }
 
 getMovies(URL);
+<<<<<<< HEAD
 
 
 form.addEventListener('submit', (e)=>{
@@ -209,3 +210,22 @@ form.addEventListener('submit', (e)=>{
 
 
 
+=======
+
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+
+    const searchInput = document.getElementById('search-input')
+    const searchTerm = searchInput.value
+    const FSEARCHURL = SEARCHURL + searchTerm
+
+    if(searchTerm){
+        container.innerHTML = ''
+        getMovies(SEARCHURL + `&query=${searchInput.value}`)
+        removeHighlight()
+    }else{
+        return;
+    }
+})
+>>>>>>> 3d85be053a715baa92408a512c7a06aa9a0df7a3
